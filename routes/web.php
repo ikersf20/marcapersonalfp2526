@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return 'Pantalla principal';
 
     return view('home');
 
@@ -64,6 +63,6 @@ Route::get('perfil/{id?}', function ($id = null) {
         return 'Visualizar el usuario propio';
     return 'Visualizar el usuario de ' . $id;
 }) -> where('id', '[0-9]+');
-       
+
 
 

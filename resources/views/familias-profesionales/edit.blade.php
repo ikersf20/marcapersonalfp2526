@@ -14,24 +14,34 @@
                 </div>
                 <div class="card-body" style="padding:30px">
 
-                    <form action="{{ action([App\Http\Controllers\FamiliasProfesionalesController::class, 'putCreate'],$familia_profesional->id) }}" method="POST">
+                    <form
+                        action="{{ action([App\Http\Controllers\FamiliasProfesionalesController::class, 'update'], $familia_profesional->id) }}"
+                        method="POST" enctype="multipart/form-data">
 
                         @csrf
                         @method('PUT')
 
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" value="{{$familia_profesional->nombre}}" required>
+                            <input type="text" name="nombre" id="nombre" class="form-control"
+                                value="{{ $familia_profesional->nombre }}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="codigo">Codigo</label>
-	                        <input type="text" name="codigo" id="codigo" value="{{$familia_profesional->codigo}}" class="form-control" required>
+                            <input type="text" name="codigo" id="codigo" value="{{ $familia_profesional->codigo }}"
+                                class="form-control" required>
                         </div>
 
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label for="descripcion">Descripcion</label>
-                            <input type="text" name="descripcion" id="descripcion" value="{{$familia_profesional->descripcion}}" class="form-control">
+                            <input type="text" name="descripcion" id="descripcion"
+                                value="{{ $familia_profesional->descripcion }}" class="form-control">
+                        </div>-->
+
+                        <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input type="file" class="form-control" id="imagen" name="imagen" placeholder="imagen">
                         </div>
 
                         <div class="form-group text-center">
